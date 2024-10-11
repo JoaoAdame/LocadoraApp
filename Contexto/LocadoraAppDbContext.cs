@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using LocadoraApp.Classes;
+using Pomelo.EntityFrameworkCore.MySql;
 
 namespace LocadoraApp.Contexto
 {
@@ -13,8 +14,10 @@ namespace LocadoraApp.Contexto
         public DbSet<Midia> Midias { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("Server=localhost;Database=locadoraapp;User=root;Password=12345;");
+            string conexao = "Server=localhost;Database=locadoraapp;User=root;Password=12345;";
             
+            optionsBuilder.UseMySql(conexao,
+                ServerVersion.AutoDetect(conexao));
         }
     }
 }
