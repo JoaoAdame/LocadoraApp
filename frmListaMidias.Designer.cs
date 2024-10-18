@@ -41,7 +41,6 @@
             dgvListaMidias.RowTemplate.Height = 29;
             dgvListaMidias.Size = new Size(776, 426);
             dgvListaMidias.TabIndex = 0;
-            dgvListaMidias.CellContentClick += dgvListaMidias_CellContentClick;
             // 
             // frmListaMidias
             // 
@@ -51,7 +50,6 @@
             Controls.Add(dgvListaMidias);
             Name = "frmListaMidias";
             Text = "frmListaMidias";
-            Load += frmListaMidias_Load;
             ((System.ComponentModel.ISupportInitialize)dgvListaMidias).EndInit();
             ResumeLayout(false);
         }

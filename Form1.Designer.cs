@@ -1,6 +1,6 @@
 ﻿namespace LocadoraApp
 {
-    partial class Form1
+    partial class LocadoraApp
     {
         /// <summary>
         ///  Required designer variable.
@@ -57,14 +57,14 @@
             // adicionarMídiaToolStripMenuItem
             // 
             adicionarMídiaToolStripMenuItem.Name = "adicionarMídiaToolStripMenuItem";
-            adicionarMídiaToolStripMenuItem.Size = new Size(224, 26);
+            adicionarMídiaToolStripMenuItem.Size = new Size(198, 26);
             adicionarMídiaToolStripMenuItem.Text = "Adicionar Mídia";
             adicionarMídiaToolStripMenuItem.Click += adicionarMídiaToolStripMenuItem_Click;
             // 
             // menuToolStripMenuItem
             // 
             menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            menuToolStripMenuItem.Size = new Size(224, 26);
+            menuToolStripMenuItem.Size = new Size(198, 26);
             menuToolStripMenuItem.Text = "Menu";
             menuToolStripMenuItem.Click += menuToolStripMenuItem_Click;
             // 
@@ -80,15 +80,16 @@
             sairToolStripMenuItem.Size = new Size(48, 24);
             sairToolStripMenuItem.Text = "Sair";
             // 
-            // Form1
+            // LocadoraApp
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Name = "Form1";
-            Text = "Form1";
+            Name = "LocadoraApp";
+            Text = "LocadoraApp";
+            Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

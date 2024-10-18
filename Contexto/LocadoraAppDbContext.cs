@@ -6,16 +6,35 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using LocadoraApp.Classes;
 using Pomelo.EntityFrameworkCore.MySql;
+using System.Security.Cryptography.X509Certificates;
 
 namespace LocadoraApp.Contexto
 {
     internal class LocadoraAppDbContext : DbContext
     {
         public DbSet<Midia> Midias { get; set; }
+        public DbSet<Locacao> Locacoes { get; set; }
+        public DbSet<Item> Itens { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Cria relação Item e Midia
+            modelBuilder.Entity<Item>()
+                .HasOne(i => i.Midia)
+                .WithMany(m => m.Itens)
+                .HasForeignKey(i => i.MidiaId);
+
+            // Cria a relação de Locação e Itens
+            modelBuilder.Entity<Item>()
+                .HasOne(i => i.Locacao)
+                .WithMany(p => p.Itens)
+                .HasForeignKey(i => i.LocacaoId);
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string conexao = "Server=localhost;Database=locadoraapp;User=root;Password=12345;";
-            
+            string conexao = "server=localhost;database=locadoraapp;user=root;password=12345;port=3306;charset=utf8mb4;";
+
             optionsBuilder.UseMySql(conexao,
                 ServerVersion.AutoDetect(conexao));
         }

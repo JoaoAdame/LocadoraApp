@@ -24,5 +24,7 @@ namespace LocadoraApp.Classes
         public int Ano {  get; set; }
         public int Duracao { get; set; }
         public string ClassificacaoIndicativa { get; set; }
+
+        public List<Item> Itens { get; set; }
     }
 }

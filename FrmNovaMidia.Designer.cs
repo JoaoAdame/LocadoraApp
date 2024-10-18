@@ -39,7 +39,6 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
-            dtpAnoLancamento = new DateTimePicker();
             txtAutor = new TextBox();
             cmbClassificacao = new ComboBox();
             numDuracao = new NumericUpDown();
@@ -48,8 +47,10 @@
             txtSinopse = new TextBox();
             btnEditar = new Button();
             btnApagar = new Button();
+            numAnoLancamento = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)numCodigo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numDuracao).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numAnoLancamento).BeginInit();
             SuspendLayout();
             // 
             // numCodigo
@@ -155,13 +156,6 @@
             label8.TabIndex = 10;
             label8.Text = "Sinopse";
             // 
-            // dtpAnoLancamento
-            // 
-            dtpAnoLancamento.Location = new Point(59, 264);
-            dtpAnoLancamento.Name = "dtpAnoLancamento";
-            dtpAnoLancamento.Size = new Size(338, 27);
-            dtpAnoLancamento.TabIndex = 11;
-            // 
             // txtAutor
             // 
             txtAutor.Location = new Point(435, 126);
@@ -181,6 +175,7 @@
             // numDuracao
             // 
             numDuracao.Location = new Point(436, 267);
+            numDuracao.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numDuracao.Name = "numDuracao";
             numDuracao.Size = new Size(321, 27);
             numDuracao.TabIndex = 14;
@@ -232,11 +227,20 @@
             btnApagar.UseVisualStyleBackColor = true;
             btnApagar.Click += btnApagar_Click;
             // 
+            // numAnoLancamento
+            // 
+            numAnoLancamento.Location = new Point(56, 264);
+            numAnoLancamento.Maximum = new decimal(new int[] { 2024, 0, 0, 0 });
+            numAnoLancamento.Name = "numAnoLancamento";
+            numAnoLancamento.Size = new Size(341, 27);
+            numAnoLancamento.TabIndex = 20;
+            // 
             // FrmNovaMidia
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(numAnoLancamento);
             Controls.Add(btnApagar);
             Controls.Add(btnEditar);
             Controls.Add(txtSinopse);
@@ -245,7 +249,6 @@
             Controls.Add(numDuracao);
             Controls.Add(cmbClassificacao);
             Controls.Add(txtAutor);
-            Controls.Add(dtpAnoLancamento);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -261,6 +264,7 @@
             Text = "FrmNovaMidia";
             ((System.ComponentModel.ISupportInitialize)numCodigo).EndInit();
             ((System.ComponentModel.ISupportInitialize)numDuracao).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numAnoLancamento).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -278,7 +282,6 @@
         private Label label6;
         private Label label7;
         private Label label8;
-        private DateTimePicker dtpAnoLancamento;
         private TextBox txtAutor;
         private ComboBox cmbClassificacao;
         private NumericUpDown numDuracao;
@@ -287,5 +290,6 @@
         private TextBox txtSinopse;
         private Button btnEditar;
         private Button btnApagar;
+        private NumericUpDown numAnoLancamento;
     }
 }

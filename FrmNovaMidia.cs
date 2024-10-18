@@ -44,6 +44,7 @@ namespace LocadoraApp
             txtAutor.Text = MidiaAtual.Autor;
             cmbGenero.Text = MidiaAtual.Genero;
             cmbClassificacao.Text = MidiaAtual.ClassificacaoIndicativa;
+            numAnoLancamento.Value = MidiaAtual.Ano;
         }
 
         // Retorna uma Midia do Banco de Dados
@@ -61,12 +62,14 @@ namespace LocadoraApp
             txtAutor.ReadOnly = status;
             txtSinopse.ReadOnly = status;
             numDuracao.ReadOnly = status;
+            numAnoLancamento.ReadOnly = status;
 
             cmbGenero.Enabled = !status;
             cmbClassificacao.Enabled = !status;
             btnSalvar.Enabled = !status;
 
             btnEditar.Visible = status;
+            btnApagar.Visible = status;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -85,7 +88,7 @@ namespace LocadoraApp
                     MidiaAtual.Duracao = (int)numDuracao.Value;
                     MidiaAtual.ClassificacaoIndicativa = cmbClassificacao.SelectedItem.ToString();
                     MidiaAtual.Genero = cmbGenero.SelectedItem.ToString();
-                    MidiaAtual.Ano = 2024;
+                    MidiaAtual.Ano = int.Parse(numAnoLancamento.Text.ToString());
 
                     // Salva as alterações no Bando de Dados
                     int resultado = contexto.SaveChanges();
@@ -109,7 +112,7 @@ namespace LocadoraApp
                     cmbGenero.SelectedItem.ToString(),
                     cmbClassificacao.SelectedItem.ToString(),
                     (int)numDuracao.Value,
-                    2024
+                    (int)numAnoLancamento.Value
                 );
             }
         }

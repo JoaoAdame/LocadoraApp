@@ -1,8 +1,8 @@
 namespace LocadoraApp
 {
-    public partial class Form1 : Form
+    public partial class LocadoraApp : Form
     {
-        public Form1()
+        public LocadoraApp()
         {
             InitializeComponent();
         }
@@ -17,6 +17,11 @@ namespace LocadoraApp
         {
             frmListaMidias frmlistamidias = new frmListaMidias();
             frmlistamidias.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
