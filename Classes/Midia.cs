@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraApp.Classes
 {
-    internal class Midia
+    public class Midia
     {
         //Titulo
         //Gênero

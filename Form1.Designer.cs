@@ -34,6 +34,8 @@
             menuToolStripMenuItem = new ToolStripMenuItem();
             locaçõesToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
+            novaToolStripMenuItem = new ToolStripMenuItem();
+            listaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,6 +72,7 @@
             // 
             // locaçõesToolStripMenuItem
             // 
+            locaçõesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novaToolStripMenuItem, listaToolStripMenuItem });
             locaçõesToolStripMenuItem.Name = "locaçõesToolStripMenuItem";
             locaçõesToolStripMenuItem.Size = new Size(84, 24);
             locaçõesToolStripMenuItem.Text = "Locações";
@@ -79,6 +82,19 @@
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             sairToolStripMenuItem.Size = new Size(48, 24);
             sairToolStripMenuItem.Text = "Sair";
+            // 
+            // novaToolStripMenuItem
+            // 
+            novaToolStripMenuItem.Name = "novaToolStripMenuItem";
+            novaToolStripMenuItem.Size = new Size(224, 26);
+            novaToolStripMenuItem.Text = "Nova";
+            novaToolStripMenuItem.Click += novaToolStripMenuItem_Click;
+            // 
+            // listaToolStripMenuItem
+            // 
+            listaToolStripMenuItem.Name = "listaToolStripMenuItem";
+            listaToolStripMenuItem.Size = new Size(224, 26);
+            listaToolStripMenuItem.Text = "Lista";
             // 
             // LocadoraApp
             // 
@@ -104,5 +120,7 @@
         private ToolStripMenuItem menuToolStripMenuItem;
         private ToolStripMenuItem locaçõesToolStripMenuItem;
         private ToolStripMenuItem sairToolStripMenuItem;
+        private ToolStripMenuItem novaToolStripMenuItem;
+        private ToolStripMenuItem listaToolStripMenuItem;
     }
 }
