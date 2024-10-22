@@ -22,9 +22,6 @@ namespace LocadoraApp.Classes
             public int MidiaId { get; set; }
             public Midia Midia { get; set; }
 
-            public Item()
-            {
-
-            }
+            public List<Item> Itens { get; set; }
         }
     }

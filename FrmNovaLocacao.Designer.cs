@@ -36,9 +36,19 @@
             txtNomeCliente = new TextBox();
             label1 = new Label();
             groupBox2 = new GroupBox();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            btnAdicionar = new Button();
             midiasComboBox1 = new Componentes.MidiasComboBox();
+            numericUpDown1 = new NumericUpDown();
+            numericUpDown2 = new NumericUpDown();
+            numericUpDown3 = new NumericUpDown();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -114,6 +124,13 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(numericUpDown3);
+            groupBox2.Controls.Add(numericUpDown2);
+            groupBox2.Controls.Add(numericUpDown1);
+            groupBox2.Controls.Add(label6);
+            groupBox2.Controls.Add(label5);
+            groupBox2.Controls.Add(label4);
+            groupBox2.Controls.Add(btnAdicionar);
             groupBox2.Controls.Add(midiasComboBox1);
             groupBox2.Location = new Point(18, 178);
             groupBox2.Name = "groupBox2";
@@ -122,14 +139,73 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Itens da Locação";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(268, 91);
+            label6.Name = "label6";
+            label6.Size = new Size(87, 20);
+            label6.TabIndex = 4;
+            label6.Text = "Quantidade";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(516, 91);
+            label5.Name = "label5";
+            label5.Size = new Size(185, 20);
+            label5.TabIndex = 3;
+            label5.Text = "Prazo de Devolução (Dias)";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(7, 91);
+            label4.Name = "label4";
+            label4.Size = new Size(43, 20);
+            label4.TabIndex = 2;
+            label4.Text = "Valor";
+            // 
+            // btnAdicionar
+            // 
+            btnAdicionar.Location = new Point(791, 195);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(106, 37);
+            btnAdicionar.TabIndex = 1;
+            btnAdicionar.Text = "Adicionar";
+            btnAdicionar.UseVisualStyleBackColor = true;
+            // 
             // midiasComboBox1
             // 
+            midiasComboBox1.BackColor = Color.RebeccaPurple;
             midiasComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            midiasComboBox1.ForeColor = Color.White;
             midiasComboBox1.FormattingEnabled = true;
             midiasComboBox1.Location = new Point(6, 38);
             midiasComboBox1.Name = "midiasComboBox1";
             midiasComboBox1.Size = new Size(896, 28);
             midiasComboBox1.TabIndex = 0;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(7, 114);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(245, 27);
+            numericUpDown1.TabIndex = 5;
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(268, 114);
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(218, 27);
+            numericUpDown2.TabIndex = 6;
+            // 
+            // numericUpDown3
+            // 
+            numericUpDown3.Location = new Point(521, 114);
+            numericUpDown3.Name = "numericUpDown3";
+            numericUpDown3.Size = new Size(381, 27);
+            numericUpDown3.TabIndex = 7;
             // 
             // FrmNovaLocacao
             // 
@@ -143,6 +219,10 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
             ResumeLayout(false);
         }
 
@@ -157,5 +237,12 @@
         private Label label3;
         private GroupBox groupBox2;
         private Componentes.MidiasComboBox midiasComboBox1;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Button btnAdicionar;
+        private NumericUpDown numericUpDown3;
+        private NumericUpDown numericUpDown2;
+        private NumericUpDown numericUpDown1;
     }
 }
