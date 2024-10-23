@@ -27,7 +27,7 @@ namespace LocadoraApp
         private void novaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmNovaLocacao frmNovaLocacao = new FrmNovaLocacao();
-            frmNovaLocacao.Show();  
+            frmNovaLocacao.Show();
         }
     }
 }

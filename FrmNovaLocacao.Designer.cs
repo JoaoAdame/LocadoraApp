@@ -36,24 +36,29 @@
             txtNomeCliente = new TextBox();
             label1 = new Label();
             groupBox2 = new GroupBox();
+            numPrazoDevolução = new NumericUpDown();
+            numQuantidade = new NumericUpDown();
+            numValor = new NumericUpDown();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
             btnAdicionar = new Button();
-            midiasComboBox1 = new Componentes.MidiasComboBox();
-            numericUpDown1 = new NumericUpDown();
-            numericUpDown2 = new NumericUpDown();
-            numericUpDown3 = new NumericUpDown();
+            cmbMidias = new Componentes.MidiasComboBox();
+            dgvItensLocacao = new DataGridView();
+            btnCacncelar = new Button();
+            btnFecharlocacao = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPrazoDevolução).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numQuantidade).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numValor).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvItensLocacao).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.BackColor = Color.CornflowerBlue;
             groupBox1.Controls.Add(mtxtTelefone);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
@@ -124,20 +129,42 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(numericUpDown3);
-            groupBox2.Controls.Add(numericUpDown2);
-            groupBox2.Controls.Add(numericUpDown1);
+            groupBox2.BackColor = Color.DodgerBlue;
+            groupBox2.Controls.Add(numPrazoDevolução);
+            groupBox2.Controls.Add(numQuantidade);
+            groupBox2.Controls.Add(numValor);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(btnAdicionar);
-            groupBox2.Controls.Add(midiasComboBox1);
+            groupBox2.Controls.Add(cmbMidias);
             groupBox2.Location = new Point(18, 178);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(908, 237);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Itens da Locação";
+            // 
+            // numPrazoDevolução
+            // 
+            numPrazoDevolução.Location = new Point(521, 114);
+            numPrazoDevolução.Name = "numPrazoDevolução";
+            numPrazoDevolução.Size = new Size(381, 27);
+            numPrazoDevolução.TabIndex = 7;
+            // 
+            // numQuantidade
+            // 
+            numQuantidade.Location = new Point(268, 114);
+            numQuantidade.Name = "numQuantidade";
+            numQuantidade.Size = new Size(218, 27);
+            numQuantidade.TabIndex = 6;
+            // 
+            // numValor
+            // 
+            numValor.Location = new Point(7, 114);
+            numValor.Name = "numValor";
+            numValor.Size = new Size(245, 27);
+            numValor.TabIndex = 5;
             // 
             // label6
             // 
@@ -174,55 +201,69 @@
             btnAdicionar.TabIndex = 1;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.Click += btnAdicionar_Click;
             // 
-            // midiasComboBox1
+            // cmbMidias
             // 
-            midiasComboBox1.BackColor = Color.RebeccaPurple;
-            midiasComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            midiasComboBox1.ForeColor = Color.White;
-            midiasComboBox1.FormattingEnabled = true;
-            midiasComboBox1.Location = new Point(6, 38);
-            midiasComboBox1.Name = "midiasComboBox1";
-            midiasComboBox1.Size = new Size(896, 28);
-            midiasComboBox1.TabIndex = 0;
+            cmbMidias.BackColor = Color.RebeccaPurple;
+            cmbMidias.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMidias.ForeColor = Color.White;
+            cmbMidias.FormattingEnabled = true;
+            cmbMidias.Location = new Point(6, 38);
+            cmbMidias.Name = "cmbMidias";
+            cmbMidias.Size = new Size(896, 28);
+            cmbMidias.TabIndex = 0;
             // 
-            // numericUpDown1
+            // dgvItensLocacao
             // 
-            numericUpDown1.Location = new Point(7, 114);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(245, 27);
-            numericUpDown1.TabIndex = 5;
+            dgvItensLocacao.BackgroundColor = Color.MediumTurquoise;
+            dgvItensLocacao.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvItensLocacao.Location = new Point(18, 428);
+            dgvItensLocacao.Name = "dgvItensLocacao";
+            dgvItensLocacao.RowHeadersWidth = 51;
+            dgvItensLocacao.RowTemplate.Height = 29;
+            dgvItensLocacao.Size = new Size(908, 117);
+            dgvItensLocacao.TabIndex = 2;
             // 
-            // numericUpDown2
+            // btnCacncelar
             // 
-            numericUpDown2.Location = new Point(268, 114);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(218, 27);
-            numericUpDown2.TabIndex = 6;
+            btnCacncelar.Location = new Point(698, 560);
+            btnCacncelar.Name = "btnCacncelar";
+            btnCacncelar.Size = new Size(94, 37);
+            btnCacncelar.TabIndex = 3;
+            btnCacncelar.Text = "cancelar";
+            btnCacncelar.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown3
+            // btnFecharlocacao
             // 
-            numericUpDown3.Location = new Point(521, 114);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(381, 27);
-            numericUpDown3.TabIndex = 7;
+            btnFecharlocacao.Location = new Point(798, 560);
+            btnFecharlocacao.Name = "btnFecharlocacao";
+            btnFecharlocacao.Size = new Size(122, 37);
+            btnFecharlocacao.TabIndex = 4;
+            btnFecharlocacao.Text = "Fechar Locação";
+            btnFecharlocacao.UseVisualStyleBackColor = true;
             // 
             // FrmNovaLocacao
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(938, 557);
+            ClientSize = new Size(938, 609);
+            Controls.Add(btnFecharlocacao);
+            Controls.Add(btnCacncelar);
+            Controls.Add(dgvItensLocacao);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "FrmNovaLocacao";
             Text = "Nova Locação";
+            Load += FrmNovaLocacao_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPrazoDevolução).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numQuantidade).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numValor).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvItensLocacao).EndInit();
             ResumeLayout(false);
         }
 
@@ -236,13 +277,16 @@
         private MaskedTextBox mtxtTelefone;
         private Label label3;
         private GroupBox groupBox2;
-        private Componentes.MidiasComboBox midiasComboBox1;
+        private Componentes.MidiasComboBox cmbMidias;
         private Label label6;
         private Label label5;
         private Label label4;
         private Button btnAdicionar;
-        private NumericUpDown numericUpDown3;
-        private NumericUpDown numericUpDown2;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown numPrazoDevolução;
+        private NumericUpDown numQuantidade;
+        private NumericUpDown numValor;
+        private DataGridView dgvItensLocacao;
+        private Button btnCacncelar;
+        private Button btnFecharlocacao;
     }
 }
