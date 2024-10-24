@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace LocadoraApp.Classes
             public decimal ValorTotal { get; set; }
 
             // Relação com os itens
-            public List<Item> Itens { get; set; }
+            public BindingList<Item> Itens { get; set; }
+
+        public Locacao()
+        {
+            Itens = new BindingList<Item>();
+        }
     }
 }

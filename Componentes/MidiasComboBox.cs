@@ -37,7 +37,7 @@ namespace LocadoraApp.Componentes
             }
         }
 
-        public Midia MidiaSelecionada
+        public Midia? MidiaSelecionada
         {
             get
             {

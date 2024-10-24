@@ -161,6 +161,7 @@
             // 
             // numValor
             // 
+            numValor.DecimalPlaces = 2;
             numValor.Location = new Point(7, 114);
             numValor.Name = "numValor";
             numValor.Size = new Size(245, 27);
@@ -242,6 +243,7 @@
             btnFecharlocacao.TabIndex = 4;
             btnFecharlocacao.Text = "Fechar Locação";
             btnFecharlocacao.UseVisualStyleBackColor = true;
+            btnFecharlocacao.Click += btnFecharlocacao_Click;
             // 
             // FrmNovaLocacao
             // 

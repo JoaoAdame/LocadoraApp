@@ -261,7 +261,7 @@
             Controls.Add(label1);
             Controls.Add(numCodigo);
             Name = "FrmNovaMidia";
-            Text = "FrmNovaMidia";
+            Text = "Nova Mídia";
             ((System.ComponentModel.ISupportInitialize)numCodigo).EndInit();
             ((System.ComponentModel.ISupportInitialize)numDuracao).EndInit();
             ((System.ComponentModel.ISupportInitialize)numAnoLancamento).EndInit();
