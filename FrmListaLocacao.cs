@@ -84,6 +84,8 @@ namespace LocadoraApp
 
         private void FrmListaLocacoes_Load(object sender, EventArgs e)
         {
+            CarregaDadosDGV();
+
             
         }
     }

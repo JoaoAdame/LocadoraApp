@@ -33,9 +33,9 @@
             adicionarMídiaToolStripMenuItem = new ToolStripMenuItem();
             menuToolStripMenuItem = new ToolStripMenuItem();
             locaçõesToolStripMenuItem = new ToolStripMenuItem();
-            sairToolStripMenuItem = new ToolStripMenuItem();
             novaToolStripMenuItem = new ToolStripMenuItem();
             listaToolStripMenuItem = new ToolStripMenuItem();
+            sairToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,12 +77,6 @@
             locaçõesToolStripMenuItem.Size = new Size(84, 24);
             locaçõesToolStripMenuItem.Text = "Locações";
             // 
-            // sairToolStripMenuItem
-            // 
-            sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(48, 24);
-            sairToolStripMenuItem.Text = "Sair";
-            // 
             // novaToolStripMenuItem
             // 
             novaToolStripMenuItem.Name = "novaToolStripMenuItem";
@@ -95,6 +89,13 @@
             listaToolStripMenuItem.Name = "listaToolStripMenuItem";
             listaToolStripMenuItem.Size = new Size(224, 26);
             listaToolStripMenuItem.Text = "Lista";
+            listaToolStripMenuItem.Click += listaToolStripMenuItem_Click;
+            // 
+            // sairToolStripMenuItem
+            // 
+            sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            sairToolStripMenuItem.Size = new Size(48, 24);
+            sairToolStripMenuItem.Text = "Sair";
             // 
             // LocadoraApp
             // 
