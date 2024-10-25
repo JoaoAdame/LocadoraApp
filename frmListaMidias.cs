@@ -33,7 +33,7 @@ namespace LocadoraApp
             CarregaDadosDGV();
         }
 
-        public void CarregaDadosDGV()
+        private void CarregaDadosDGV()
         {
             // Carregando os dados para DGV
             dgvListaMidias.DataSource = GetMidias();

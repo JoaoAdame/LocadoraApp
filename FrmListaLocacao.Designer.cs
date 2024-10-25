@@ -1,6 +1,6 @@
 ﻿namespace LocadoraApp
 {
-    partial class frmListaMidias
+    partial class FrmListaLocacao
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvListaMidias = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dgvListaMidias).BeginInit();
+            dgvListaLocacao = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvListaLocacao).BeginInit();
             SuspendLayout();
             // 
-            // dgvListaMidias
+            // dgvListaLocacao
             // 
-            dgvListaMidias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvListaMidias.Location = new Point(12, 12);
-            dgvListaMidias.Name = "dgvListaMidias";
-            dgvListaMidias.RowHeadersWidth = 51;
-            dgvListaMidias.RowTemplate.Height = 29;
-            dgvListaMidias.Size = new Size(776, 426);
-            dgvListaMidias.TabIndex = 0;
+            dgvListaLocacao.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvListaLocacao.Location = new Point(12, 12);
+            dgvListaLocacao.Name = "dgvListaLocacao";
+            dgvListaLocacao.RowHeadersWidth = 51;
+            dgvListaLocacao.RowTemplate.Height = 29;
+            dgvListaLocacao.Size = new Size(776, 426);
+            dgvListaLocacao.TabIndex = 0;
             // 
-            // frmListaMidias
+            // FrmListaLocacao
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dgvListaMidias);
-            Name = "frmListaMidias";
-            Text = "Lista Midias";
-            Load += FrmListaMidias_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvListaMidias).EndInit();
+            Controls.Add(dgvListaLocacao);
+            Name = "FrmListaLocacao";
+            Text = "Lista da Locação";
+            Load += FrmListaLocacoes_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvListaLocacao).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dgvListaMidias;
+        private DataGridView dgvListaLocacao;
     }
 }

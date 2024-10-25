@@ -3,6 +3,7 @@ using System;
 using LocadoraApp.Contexto;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocadoraApp.Migrations
 {
     [DbContext(typeof(LocadoraAppDbContext))]
-    partial class LocadoraAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241025001013_ItensLocacao")]
+    partial class ItensLocacao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

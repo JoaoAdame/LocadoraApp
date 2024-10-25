@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -144,6 +145,60 @@ namespace LocadoraApp
             {
                 return;
             }
+
+            //Adiciona os dados da locação
+            LocacaoAtual.Cpf = mtxtCpf.Text;
+            LocacaoAtual.Nome = txtNomeCliente.Text;
+            LocacaoAtual.Telefone = mtxtTelefone.Text;
+            LocacaoAtual.Status = "Fechado";
+            LocacaoAtual.Data = DateTime.Now;
+
+            //abre o contexto para salvar a locação
+            using (var contexto = new LocadoraAppDbContext())
+            {
+                //Adiciona todas as midias ao contexto para não serem inseridas novamente
+                foreach (var item in LocacaoAtual.Itens)
+                {
+                    contexto.Midias.Attach(item.Midia);
+                }
+
+                contexto.Locacoes.Add(LocacaoAtual);
+                int resultado = contexto.SaveChanges();
+
+                if (resultado > 0)
+                {
+                    var opcao = MessageBox.Show(
+                        "Locação criada com sucesso! Deseja criar outra?",
+                        "Locação criada",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Information,
+                        MessageBoxDefaultButton.Button1
+                        );
+
+                    if (opcao == DialogResult.Yes)
+                    {
+                        //limpa o Formulário
+                        LimpaCamposDados();
+
+
+                    }
+                    else
+                    {
+                        //Fecha o formulário
+                        this.Close();
+                    }
+                }
+            }
+        }
+        
+        private void LimpaCamposDados()
+        {
+            txtNomeCliente.Clear();
+            mtxtCpf.Clear();
+            mtxtTelefone.Clear();
+            CarregaDadosItensLocacao();
+
+            LocacaoAtual = new Locacao();
         }
 
         private bool ValidaDadosLocacao()
