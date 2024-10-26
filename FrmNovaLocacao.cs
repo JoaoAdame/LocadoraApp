@@ -160,6 +160,7 @@ namespace LocadoraApp
                 foreach (var item in LocacaoAtual.Itens)
                 {
                     contexto.Midias.Attach(item.Midia);
+                    LocacaoAtual.ValorTotal += item.ValorTotal; //Soma o valor total do item na locãção
                 }
 
                 contexto.Locacoes.Add(LocacaoAtual);
@@ -190,7 +191,7 @@ namespace LocadoraApp
                 }
             }
         }
-        
+
         private void LimpaCamposDados()
         {
             txtNomeCliente.Clear();
@@ -210,7 +211,7 @@ namespace LocadoraApp
                 txtNomeCliente.Focus();
                 return false;
             }
-            
+
             //Verifica se tem CPF
             if (mtxtCpf == null)
             {
@@ -218,7 +219,7 @@ namespace LocadoraApp
                 mtxtCpf.Focus();
                 return false;
             }
-            
+
             //Verifica se tem telefone valido
             if (mtxtTelefone == null)
             {
