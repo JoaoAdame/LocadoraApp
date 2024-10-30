@@ -26,7 +26,7 @@ namespace LocadoraApp.Classes
         {
             get
             {
-                return Quantidade * Valor;
+                return Quantidade * Valor * PrazoDevolucao;
             }
         }
 

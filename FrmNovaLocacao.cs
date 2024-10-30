@@ -69,6 +69,9 @@ namespace LocadoraApp
             //Oculta o formulário de novos itens
             grbNovoItem.Visible = !status;
 
+            // Mostra o groupBox de dados
+            grbDadosLocacao.Visible = status;
+
             //Oculta o botão de fechar locação
             btnFecharlocacao.Visible = !status;
 
@@ -193,7 +196,7 @@ namespace LocadoraApp
             dgvItensLocacao.Columns["MidiaTitulo"].DisplayIndex = 1;
             dgvItensLocacao.Columns["PrazoDevolucao"].DisplayIndex = 2;
             dgvItensLocacao.Columns["DataDevolucao"].DisplayIndex = 3;
-          dgvItensLocacao.Columns["Valor"].DisplayIndex = 4;
+            dgvItensLocacao.Columns["Valor"].DisplayIndex = 4;
             dgvItensLocacao.Columns["Quantidade"].DisplayIndex = 5;
             dgvItensLocacao.Columns["ValorTotal"].DisplayIndex = 6;
 
@@ -299,5 +302,6 @@ namespace LocadoraApp
 
             return true;
         }
+
     }
 }
