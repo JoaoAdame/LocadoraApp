@@ -38,8 +38,24 @@ namespace LocadoraApp.Classes
             }
         }
 
+        public DateTime DataDevolucao
+        {
+            get
+            {
+                if (Locacao != null)
+                {
+                   return Locacao.Data.AddDays(PrazoDevolucao);
+                }
+                else
+                {
+                    return DateTime.Now.AddDays(PrazoDevolucao);
+                }
+             
+            }
+        }
+
         public Item() 
-       {
+        {
             Midia = new Midia();
         }
     }

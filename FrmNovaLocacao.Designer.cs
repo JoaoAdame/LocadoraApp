@@ -35,7 +35,7 @@
             mtxtCpf = new MaskedTextBox();
             txtNomeCliente = new TextBox();
             label1 = new Label();
-            groupBox2 = new GroupBox();
+            grbNovoItem = new GroupBox();
             numPrazoDevolução = new NumericUpDown();
             numQuantidade = new NumericUpDown();
             numValor = new NumericUpDown();
@@ -48,7 +48,7 @@
             btnCacncelar = new Button();
             btnFecharlocacao = new Button();
             groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
+            grbNovoItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numPrazoDevolução).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numQuantidade).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numValor).BeginInit();
@@ -103,7 +103,7 @@
             // mtxtCpf
             // 
             mtxtCpf.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            mtxtCpf.Location = new Point(0, 108);
+            mtxtCpf.Location = new Point(6, 108);
             mtxtCpf.Mask = "999.999.999-99";
             mtxtCpf.Name = "mtxtCpf";
             mtxtCpf.Size = new Size(437, 30);
@@ -127,23 +127,23 @@
             label1.TabIndex = 0;
             label1.Text = "Nome";
             // 
-            // groupBox2
+            // grbNovoItem
             // 
-            groupBox2.BackColor = Color.DodgerBlue;
-            groupBox2.Controls.Add(numPrazoDevolução);
-            groupBox2.Controls.Add(numQuantidade);
-            groupBox2.Controls.Add(numValor);
-            groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(btnAdicionar);
-            groupBox2.Controls.Add(cmbMidias);
-            groupBox2.Location = new Point(18, 178);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(908, 237);
-            groupBox2.TabIndex = 1;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Itens da Locação";
+            grbNovoItem.BackColor = Color.DodgerBlue;
+            grbNovoItem.Controls.Add(numPrazoDevolução);
+            grbNovoItem.Controls.Add(numQuantidade);
+            grbNovoItem.Controls.Add(numValor);
+            grbNovoItem.Controls.Add(label6);
+            grbNovoItem.Controls.Add(label5);
+            grbNovoItem.Controls.Add(label4);
+            grbNovoItem.Controls.Add(btnAdicionar);
+            grbNovoItem.Controls.Add(cmbMidias);
+            grbNovoItem.Location = new Point(18, 185);
+            grbNovoItem.Name = "grbNovoItem";
+            grbNovoItem.Size = new Size(908, 237);
+            grbNovoItem.TabIndex = 1;
+            grbNovoItem.TabStop = false;
+            grbNovoItem.Text = "Itens da Locação";
             // 
             // numPrazoDevolução
             // 
@@ -253,15 +253,15 @@
             Controls.Add(btnFecharlocacao);
             Controls.Add(btnCacncelar);
             Controls.Add(dgvItensLocacao);
-            Controls.Add(groupBox2);
+            Controls.Add(grbNovoItem);
             Controls.Add(groupBox1);
             Name = "FrmNovaLocacao";
             Text = "Nova Locação";
             Load += FrmNovaLocacao_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            grbNovoItem.ResumeLayout(false);
+            grbNovoItem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numPrazoDevolução).EndInit();
             ((System.ComponentModel.ISupportInitialize)numQuantidade).EndInit();
             ((System.ComponentModel.ISupportInitialize)numValor).EndInit();
@@ -278,7 +278,7 @@
         private Label label1;
         private MaskedTextBox mtxtTelefone;
         private Label label3;
-        private GroupBox groupBox2;
+        private GroupBox grbNovoItem;
         private Componentes.MidiasComboBox cmbMidias;
         private Label label6;
         private Label label5;

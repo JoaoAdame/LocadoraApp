@@ -41,6 +41,7 @@
             dgvListaLocacao.RowTemplate.Height = 29;
             dgvListaLocacao.Size = new Size(776, 426);
             dgvListaLocacao.TabIndex = 0;
+            dgvListaLocacao.CellDoubleClick += dgvListaLocacao_CellDoubleClick_1;
             // 
             // FrmListaLocacao
             // 

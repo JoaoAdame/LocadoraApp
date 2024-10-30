@@ -45,11 +45,8 @@ namespace LocadoraApp
             dgvListaLocacao.Columns["Status"].HeaderText = "Status";
             dgvListaLocacao.Columns["ValorTotal"].HeaderText = "Total";
 
-            dgvListaLocacao.Columns["LocacaoId"].DisplayIndex = 0;
-            dgvListaLocacao.Columns["Nome"].DisplayIndex = 1;
-            dgvListaLocacao.Columns["Data"].DisplayIndex = 2;
-            dgvListaLocacao.Columns["Status"].DisplayIndex = 3 ;
-            dgvListaLocacao.Columns["ValorTotal"].DisplayIndex = 4;
+            //Muda a formatação do campo valor total para notação dinheiro (Currency C)
+            dgvListaLocacao.Columns["ValorTotal"].DefaultCellStyle.Format = "C";
 
             dgvListaLocacao.Columns["Cpf"].Visible = false;
             dgvListaLocacao.Columns["Telefone"].Visible = false;
@@ -80,8 +77,20 @@ namespace LocadoraApp
         private void FrmListaLocacoes_Load(object sender, EventArgs e)
         {
             CarregaDadosDGV();
+        }
 
-            
+        private void dgvListaLocacao_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                //Pega toda a linha que está selecionada
+                DataGridViewRow linha = dgvListaLocacao.Rows[e.RowIndex];
+
+                int LocacaoId = (int)linha.Cells["LocacaoId"].Value;
+
+                FrmNovaLocacao frmNovaLocacao = new FrmNovaLocacao(LocacaoId);
+                frmNovaLocacao.ShowDialog();
+            }
         }
     }
 }

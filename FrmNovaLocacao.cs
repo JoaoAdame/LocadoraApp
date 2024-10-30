@@ -1,8 +1,10 @@
 ﻿using LocadoraApp.Classes;
 using LocadoraApp.Contexto;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
@@ -23,18 +25,78 @@ namespace LocadoraApp
             InitializeComponent();
         }
 
-        private void FrmNovaLocacao_Load(object sender, EventArgs e)
+        public FrmNovaLocacao(int LocacaoId)
         {
-            //Carrega os dados da mídia
-            cmbMidias.CarregarMidias();
+            InitializeComponent();
 
-            //Instância da locação
-            LocacaoAtual = new Locacao();
+            //Coloca os campos em apenas leitura
+            CamposApenasLeitura(true);
 
-            //Adiciona os itens da Locação no Data Grid View
-            dgvItensLocacao.DataSource = LocacaoAtual.Itens;
+            //Busca a Locação no banco de dados
+            LocacaoAtual = GetLocacaoById(LocacaoId);
+
+            //Carrega os dados para os campos
+            CarregaDadosLocacaoCampos();
+
+        }
+
+        private void CarregaDadosLocacaoCampos()
+        {
+            txtNomeCliente.Text = LocacaoAtual.Nome;
+            mtxtCpf.Text = LocacaoAtual.Cpf;
+            mtxtTelefone.Text = LocacaoAtual.Telefone;
 
             CarregaDadosItensLocacao();
+        }
+
+        private Locacao GetLocacaoById(int id)
+        {
+            using (var contexto = new LocadoraAppDbContext())
+            {
+                return contexto.Locacoes.Include(l => l.Itens)
+                    .ThenInclude(i => i.Midia)
+                    .FirstOrDefault(l => l.LocacaoId == id);
+            }
+        }
+
+        private void CamposApenasLeitura(bool status)
+        {
+            //Marca a propriedade ReadOnly como true nos campos de texto
+            txtNomeCliente.ReadOnly = status;
+            mtxtCpf.ReadOnly = status;
+            mtxtTelefone.ReadOnly = status;
+
+            //Oculta o formulário de novos itens
+            grbNovoItem.Visible = !status;
+
+            //Oculta o botão de fechar locação
+            btnFecharlocacao.Visible = !status;
+
+            //Oculta o botão de cancelar
+            btnCacncelar.Visible = !status;
+
+            //Desabilita o DataGridView dos itens
+            dgvItensLocacao.ReadOnly = status;
+
+
+        }
+
+        private void FrmNovaLocacao_Load(object sender, EventArgs e)
+        {
+
+            if (LocacaoAtual == null)
+            {
+                //Carrega os dados da mídia
+                cmbMidias.CarregarMidias();
+
+                //Instância da locação
+                LocacaoAtual = new Locacao();
+
+                //Adiciona os itens da Locação no Data Grid View
+                dgvItensLocacao.DataSource = LocacaoAtual.Itens;
+
+                CarregaDadosItensLocacao();
+            }
         }
 
 
@@ -120,6 +182,10 @@ namespace LocadoraApp
             dgvItensLocacao.Columns["Valor"].HeaderText = "Valor";
             dgvItensLocacao.Columns["Quantidade"].HeaderText = "Quantidade";
             dgvItensLocacao.Columns["ValorTotal"].HeaderText = "Total";
+
+            //Formata os campos de valor para moeda
+            dgvItensLocacao.Columns["Valor"].DefaultCellStyle.Format = "C";
+            dgvItensLocacao.Columns["ValorTotal"].DefaultCellStyle.Format = "C";
 
             //Ordena os campos
             dgvItensLocacao.Columns["ItemID"].DisplayIndex = 0;
