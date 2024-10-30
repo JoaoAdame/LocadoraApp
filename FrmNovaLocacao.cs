@@ -178,7 +178,8 @@ namespace LocadoraApp
             // Personalizar o DGV
             dgvItensLocacao.Columns["ItemID"].HeaderText = "Código";
             dgvItensLocacao.Columns["MidiaTitulo"].HeaderText = "Título";
-            dgvItensLocacao.Columns["PrazoDevolucao"].HeaderText = "Devolução";
+            dgvItensLocacao.Columns["PrazoDevolucao"].HeaderText = "Prazo";
+            dgvItensLocacao.Columns["DataDevolucao"].HeaderText = " Data Devolução";
             dgvItensLocacao.Columns["Valor"].HeaderText = "Valor";
             dgvItensLocacao.Columns["Quantidade"].HeaderText = "Quantidade";
             dgvItensLocacao.Columns["ValorTotal"].HeaderText = "Total";
@@ -191,9 +192,10 @@ namespace LocadoraApp
             dgvItensLocacao.Columns["ItemID"].DisplayIndex = 0;
             dgvItensLocacao.Columns["MidiaTitulo"].DisplayIndex = 1;
             dgvItensLocacao.Columns["PrazoDevolucao"].DisplayIndex = 2;
-            dgvItensLocacao.Columns["Valor"].DisplayIndex = 3;
-            dgvItensLocacao.Columns["Quantidade"].DisplayIndex = 4;
-            dgvItensLocacao.Columns["ValorTotal"].DisplayIndex = 5;
+            dgvItensLocacao.Columns["DataDevolucao"].DisplayIndex = 3;
+          dgvItensLocacao.Columns["Valor"].DisplayIndex = 4;
+            dgvItensLocacao.Columns["Quantidade"].DisplayIndex = 5;
+            dgvItensLocacao.Columns["ValorTotal"].DisplayIndex = 6;
 
             dgvItensLocacao.Columns["MidiaID"].Visible = false;
             dgvItensLocacao.Columns["Midia"].Visible = false;
