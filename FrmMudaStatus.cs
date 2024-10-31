@@ -51,7 +51,13 @@ namespace LocadoraApp
 
                 ItemAlteracao.Status = cmbNovoStatus.SelectedItem.ToString();
 
-                contexto.SaveChanges();
+                int res = contexto.SaveChanges();
+
+                if (res > 0)
+                {
+                    MessageBox.Show("Status alterado com sucesso!");
+                    this.Close();
+                }
             }
         }
     }
