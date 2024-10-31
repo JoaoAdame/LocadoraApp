@@ -41,6 +41,7 @@
             label4 = new Label();
             pnlPrazoDevolucao = new Panel();
             grbAlteracaoStatus.SuspendLayout();
+            pnlPrazoDevolucao.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -55,7 +56,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 90);
+            label2.Location = new Point(7, 81);
             label2.Name = "label2";
             label2.Size = new Size(88, 20);
             label2.TabIndex = 1;
@@ -80,7 +81,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(277, 90);
+            label3.Location = new Point(277, 81);
             label3.Name = "label3";
             label3.Size = new Size(142, 20);
             label3.TabIndex = 4;
@@ -89,7 +90,7 @@
             // datePrazoDevolucao
             // 
             datePrazoDevolucao.Format = DateTimePickerFormat.Short;
-            datePrazoDevolucao.Location = new Point(277, 113);
+            datePrazoDevolucao.Location = new Point(0, 7);
             datePrazoDevolucao.Name = "datePrazoDevolucao";
             datePrazoDevolucao.Size = new Size(257, 27);
             datePrazoDevolucao.TabIndex = 5;
@@ -133,7 +134,7 @@
             // cmbNovoStatus
             // 
             cmbNovoStatus.FormattingEnabled = true;
-            cmbNovoStatus.Items.AddRange(new object[] { "Pendente", "Atrasado", "Devolvido" });
+            cmbNovoStatus.Items.AddRange(new object[] { "Pendente", "Atrasado", "Devolvido", "Danificado" });
             cmbNovoStatus.Location = new Point(6, 46);
             cmbNovoStatus.Name = "cmbNovoStatus";
             cmbNovoStatus.Size = new Size(517, 28);
@@ -150,9 +151,10 @@
             // 
             // pnlPrazoDevolucao
             // 
-            pnlPrazoDevolucao.Location = new Point(277, 113);
+            pnlPrazoDevolucao.Controls.Add(datePrazoDevolucao);
+            pnlPrazoDevolucao.Location = new Point(277, 104);
             pnlPrazoDevolucao.Name = "pnlPrazoDevolucao";
-            pnlPrazoDevolucao.Size = new Size(257, 27);
+            pnlPrazoDevolucao.Size = new Size(257, 42);
             pnlPrazoDevolucao.TabIndex = 7;
             // 
             // FrmMudaStatus
@@ -161,7 +163,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(546, 390);
             Controls.Add(grbAlteracaoStatus);
-            Controls.Add(datePrazoDevolucao);
             Controls.Add(label3);
             Controls.Add(txtStatusAtual);
             Controls.Add(txctMidiaAlocada);
@@ -172,6 +173,7 @@
             Text = "Mudar o status do item";
             grbAlteracaoStatus.ResumeLayout(false);
             grbAlteracaoStatus.PerformLayout();
+            pnlPrazoDevolucao.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }

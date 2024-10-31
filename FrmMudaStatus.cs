@@ -1,5 +1,6 @@
 ﻿using LocadoraApp.Classes;
 using LocadoraApp.Contexto;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,6 +53,57 @@ namespace LocadoraApp
                 ItemAlteracao.Status = cmbNovoStatus.SelectedItem.ToString();
 
                 int res = contexto.SaveChanges();
+
+                //Verifica se existe algum item que ainda mão foi devolvido
+                //Caso não tenha, marca a locação como concluida
+
+                var LocacaoItem = contexto.Locacoes
+                    .Include(l => l.Itens)
+                    .FirstOrDefault(l => l.LocacaoId == ItemAtual.LocacaoId);
+
+                bool FechaLocacao = true;
+
+                foreach (var item in LocacaoItem.Itens)
+                {
+                    if (item.Status != "Devolvido")
+                    {
+                        FechaLocacao = false;
+                        break;
+                    }
+                }
+
+
+                if (FechaLocacao)
+                {
+                    LocacaoItem.Status = "Concluído";
+                    contexto.SaveChanges();
+                }
+
+                //bool FechaLocacao = true;
+
+                //foreach (var item in LocacaoItem.Itens)
+                //{
+                //    if (item.Status != "Devolvido")
+                //    {
+                //        FechaLocacao = false;
+                //        break;
+                //    }
+                //}
+
+
+                //if (FechaLocacao)
+                //{
+                //    LocacaoItem.Status = "Concluído";
+                //    contexto.SaveChanges();
+                //}
+                
+                if (LocacaoItem.Itens.All(i => i.Status == "Devolvido"))
+                {
+                    LocacaoItem.Status = "Concluido";
+                    contexto.SaveChanges();
+                }
+
+
 
                 if (res > 0)
                 {

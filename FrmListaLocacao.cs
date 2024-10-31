@@ -21,10 +21,14 @@ namespace LocadoraApp
 
         private List<Locacao> GetLocacao()
         {
+            string StatusFiltro = cmbStatus.Text;
+
             using (var contexto = new LocadoraAppDbContext())
             {
                 // Retorna todas as midias do banco de dados
-                return contexto.Locacoes.ToList();
+                return contexto.Locacoes
+                    .Where(l => l.Status == StatusFiltro) //Filtra pelos status selecionados
+                    .ToList();
             }
         }
 
@@ -91,6 +95,11 @@ namespace LocadoraApp
                 FrmNovaLocacao frmNovaLocacao = new FrmNovaLocacao(LocacaoId);
                 frmNovaLocacao.ShowDialog();
             }
+        }
+
+        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CarregaDadosDGV();
         }
     }
 }

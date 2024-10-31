@@ -53,6 +53,7 @@
             dgvItensLocacao = new DataGridView();
             btnCacncelar = new Button();
             btnFecharlocacao = new Button();
+            cmbMidias = new Componentes.MidiasComboBox();
             groupBox1.SuspendLayout();
             grbNovoItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numPrazoDevolução).BeginInit();
@@ -138,6 +139,8 @@
             // grbNovoItem
             // 
             grbNovoItem.BackColor = Color.DodgerBlue;
+            grbNovoItem.Controls.Add(grbDadosLocacao);
+            grbNovoItem.Controls.Add(cmbMidias);
             grbNovoItem.Controls.Add(numPrazoDevolução);
             grbNovoItem.Controls.Add(numQuantidade);
             grbNovoItem.Controls.Add(numValor);
@@ -154,14 +157,14 @@
             // 
             // numPrazoDevolução
             // 
-            numPrazoDevolução.Location = new Point(521, 114);
+            numPrazoDevolução.Location = new Point(521, 91);
             numPrazoDevolução.Name = "numPrazoDevolução";
             numPrazoDevolução.Size = new Size(381, 27);
             numPrazoDevolução.TabIndex = 7;
             // 
             // numQuantidade
             // 
-            numQuantidade.Location = new Point(268, 114);
+            numQuantidade.Location = new Point(268, 91);
             numQuantidade.Name = "numQuantidade";
             numQuantidade.Size = new Size(218, 27);
             numQuantidade.TabIndex = 6;
@@ -169,7 +172,7 @@
             // numValor
             // 
             numValor.DecimalPlaces = 2;
-            numValor.Location = new Point(7, 114);
+            numValor.Location = new Point(6, 91);
             numValor.Name = "numValor";
             numValor.Size = new Size(245, 27);
             numValor.TabIndex = 5;
@@ -177,7 +180,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(268, 91);
+            label6.Location = new Point(268, 68);
             label6.Name = "label6";
             label6.Size = new Size(87, 20);
             label6.TabIndex = 4;
@@ -186,7 +189,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(516, 91);
+            label5.Location = new Point(521, 62);
             label5.Name = "label5";
             label5.Size = new Size(185, 20);
             label5.TabIndex = 3;
@@ -195,7 +198,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(7, 91);
+            label4.Location = new Point(7, 62);
             label4.Name = "label4";
             label4.Size = new Size(43, 20);
             label4.TabIndex = 2;
@@ -203,7 +206,7 @@
             // 
             // btnAdicionar
             // 
-            btnAdicionar.Location = new Point(793, 147);
+            btnAdicionar.Location = new Point(796, 149);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(106, 37);
             btnAdicionar.TabIndex = 1;
@@ -220,7 +223,7 @@
             grbDadosLocacao.Controls.Add(label7);
             grbDadosLocacao.Controls.Add(lblValorTotal);
             grbDadosLocacao.Controls.Add(lblDataLocacao);
-            grbDadosLocacao.Location = new Point(18, 185);
+            grbDadosLocacao.Location = new Point(0, 0);
             grbDadosLocacao.Name = "grbDadosLocacao";
             grbDadosLocacao.Size = new Size(908, 192);
             grbDadosLocacao.TabIndex = 8;
@@ -312,12 +315,22 @@
             btnFecharlocacao.UseVisualStyleBackColor = true;
             btnFecharlocacao.Click += btnFecharlocacao_Click;
             // 
+            // cmbMidias
+            // 
+            cmbMidias.BackColor = Color.RebeccaPurple;
+            cmbMidias.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMidias.ForeColor = Color.White;
+            cmbMidias.FormattingEnabled = true;
+            cmbMidias.Location = new Point(7, 26);
+            cmbMidias.Name = "cmbMidias";
+            cmbMidias.Size = new Size(895, 28);
+            cmbMidias.TabIndex = 8;
+            // 
             // FrmNovaLocacao
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(938, 609);
-            Controls.Add(grbDadosLocacao);
             Controls.Add(btnFecharlocacao);
             Controls.Add(btnCacncelar);
             Controls.Add(dgvItensLocacao);
@@ -350,7 +363,6 @@
         private MaskedTextBox mtxtTelefone;
         private Label label3;
         private GroupBox grbNovoItem;
-        private Componentes.MidiasComboBox cmbMidias;
         private Label label6;
         private Label label5;
         private Label label4;
@@ -368,5 +380,6 @@
         private TextBox txtStatus;
         private DateTimePicker dateDataLocacao;
         private NumericUpDown numValorTotal;
+        private Componentes.MidiasComboBox cmbMidias;
     }
 }

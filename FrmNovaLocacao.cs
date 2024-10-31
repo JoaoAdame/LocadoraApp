@@ -93,14 +93,11 @@ namespace LocadoraApp
 
             if (LocacaoAtual == null)
             {
-                //Carrega os dados da mídia
+                // Carrega as midias no ComboBox Personalizado
                 cmbMidias.CarregarMidias();
 
-                //Instância da locação
+                // Instancia uma nova locação
                 LocacaoAtual = new Locacao();
-
-                //Adiciona os itens da Locação no Data Grid View
-                dgvItensLocacao.DataSource = LocacaoAtual.Itens;
 
                 CarregaDadosItensLocacao();
             }
@@ -311,17 +308,17 @@ namespace LocadoraApp
         private void dgvItensLocacao_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Verifica se existe uma celula selecionada
-            if (e.RowIndex >= 0) 
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow linha = dgvItensLocacao.Rows[e.RowIndex];
 
-                int ItemId = (int) linha.Cells["ItemId"].Value;
+                int ItemId = (int)linha.Cells["ItemId"].Value;
 
                 using (var contexto = new LocadoraAppDbContext())
                 {
                     var Item = contexto
                                .Itens
-                               .Include(i =>i.Midia)
+                               .Include(i => i.Midia)
                                .Include(i => i.Locacao)
                                .FirstOrDefault(i => i.ItemId == ItemId);
 
