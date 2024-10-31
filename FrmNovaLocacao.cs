@@ -46,6 +46,10 @@ namespace LocadoraApp
             mtxtCpf.Text = LocacaoAtual.Cpf;
             mtxtTelefone.Text = LocacaoAtual.Telefone;
 
+            dateDataLocacao.Value = LocacaoAtual.Data;
+            numValorTotal.Value = LocacaoAtual.ValorTotal;
+            txtStatus.Text = LocacaoAtual.Status;
+
             CarregaDadosItensLocacao();
         }
 
@@ -199,6 +203,7 @@ namespace LocadoraApp
             dgvItensLocacao.Columns["Valor"].DisplayIndex = 4;
             dgvItensLocacao.Columns["Quantidade"].DisplayIndex = 5;
             dgvItensLocacao.Columns["ValorTotal"].DisplayIndex = 6;
+            dgvItensLocacao.Columns["Status"].DisplayIndex = 7;
 
             dgvItensLocacao.Columns["MidiaID"].Visible = false;
             dgvItensLocacao.Columns["Midia"].Visible = false;
@@ -303,5 +308,31 @@ namespace LocadoraApp
             return true;
         }
 
+        private void dgvItensLocacao_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Verifica se existe uma celula selecionada
+            if (e.RowIndex >= 0) 
+            {
+                DataGridViewRow linha = dgvItensLocacao.Rows[e.RowIndex];
+
+                int ItemId = (int) linha.Cells["ItemId"].Value;
+
+                using (var contexto = new LocadoraAppDbContext())
+                {
+                    var Item = contexto
+                               .Itens
+                               .Include(i =>i.Midia)
+                               .Include(i => i.Locacao)
+                               .FirstOrDefault(i => i.ItemId == ItemId);
+
+                    if (Item != null)
+                    {
+                        //Chama o formulário de mudar status passando o item buscado
+                        FrmMudaStatus frmMudaStatus = new FrmMudaStatus(Item);
+                        frmMudaStatus.ShowDialog();
+                    }
+                }
+            }
+        }
     }
 }

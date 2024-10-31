@@ -43,7 +43,6 @@
             label5 = new Label();
             label4 = new Label();
             btnAdicionar = new Button();
-            cmbMidias = new Componentes.MidiasComboBox();
             grbDadosLocacao = new GroupBox();
             numValorTotal = new NumericUpDown();
             txtStatus = new TextBox();
@@ -146,7 +145,6 @@
             grbNovoItem.Controls.Add(label5);
             grbNovoItem.Controls.Add(label4);
             grbNovoItem.Controls.Add(btnAdicionar);
-            grbNovoItem.Controls.Add(cmbMidias);
             grbNovoItem.Location = new Point(18, 185);
             grbNovoItem.Name = "grbNovoItem";
             grbNovoItem.Size = new Size(908, 192);
@@ -212,17 +210,6 @@
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
             btnAdicionar.Click += btnAdicionar_Click;
-            // 
-            // cmbMidias
-            // 
-            cmbMidias.BackColor = Color.RebeccaPurple;
-            cmbMidias.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbMidias.ForeColor = Color.White;
-            cmbMidias.FormattingEnabled = true;
-            cmbMidias.Location = new Point(6, 38);
-            cmbMidias.Name = "cmbMidias";
-            cmbMidias.Size = new Size(896, 28);
-            cmbMidias.TabIndex = 0;
             // 
             // grbDadosLocacao
             // 
@@ -304,6 +291,7 @@
             dgvItensLocacao.RowTemplate.Height = 29;
             dgvItensLocacao.Size = new Size(908, 171);
             dgvItensLocacao.TabIndex = 2;
+            dgvItensLocacao.CellDoubleClick += dgvItensLocacao_CellDoubleClick;
             // 
             // btnCacncelar
             // 
